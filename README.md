@@ -26,7 +26,7 @@ Install the requirements:
 $ sudo pip install -r requirements.txt
 </pre>
 
-# How to use
+# Usage
 
 By default the tool searches on all search engines (you can set this up by arguments), but you need to put the credentials as stated above. After you have loaded the credentials and installed the requirements, execute:
 
