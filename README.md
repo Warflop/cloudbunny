@@ -1,6 +1,6 @@
 # CloudBunny
 
-CloudBunny is a tool to capture the real IP of the server that uses a WAF as a proxy or protection.
+CloudBunny is a tool to capture the origin server that uses a WAF as a proxy or protection.
 
 <p align="center">
 <img src="https://i.imgur.com/CyGo02V.gif">
