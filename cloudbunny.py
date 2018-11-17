@@ -81,6 +81,7 @@ def search(url):
 			scraper = cfscrape.create_scraper()
 			data  = scraper.get(url,headers=headers)
 		else:
+			scraper = cfscrape.create_scraper()
 			data  = scraper.get(url,headers=headers)
 		
 	except:
