@@ -1,6 +1,7 @@
 beautifulsoup4
 configparser
 PrettyTable
+cfscrape
 argparse
 requests
 censys
