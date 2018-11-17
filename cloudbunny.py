@@ -7,7 +7,7 @@ from zoomeye_search import *
 from shodan_search import *
 from censys_search import *
 from random import choice
-import requests
+import requests, cfscrape
 import argparse
 import re
 
@@ -78,9 +78,10 @@ def search(url):
 		
 		if not re.match(r'http(s?)\:', url):
 			url = 'http://' + url
-			data  = requests.get(url,headers=headers)
+			scraper = cfscrape.create_scraper()
+			data  = scraper.get(url,headers=headers)
 		else:
-			data  = requests.get(url,headers=headers)
+			data  = scraper.get(url,headers=headers)
 		
 	except:
 
