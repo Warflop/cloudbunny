@@ -2,6 +2,8 @@
 
 CloudBunny is a tool to capture the origin server that uses a WAF as a proxy or protection.
 
+You can read more about the tool here: https://tinyurl.com/y8p48wb3
+
 <p align="center">
 <img src="https://i.imgur.com/CyGo02V.gif">
 </p>
