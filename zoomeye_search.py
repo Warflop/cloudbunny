@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 import requests
 import ConfigParser
 
@@ -19,7 +20,7 @@ def zoomeye_search(word):
 
 	except:
 
-		print "[-] We got an error with your zoomeye credentials. (Check if zoomeye is down ¯\_(ツ)_/¯)"
+		print("[-] We got an error with your zoomeye credentials. (Check if zoomeye is down ¯\_(ツ)_/¯)")
 		exit(1)
 
 
@@ -41,6 +42,6 @@ def zoomeye_search(word):
 
 	except:
 
-		print "[-] We got an error here!"
+		print("[-] We got an error here!")
 		exit(1)
 		
