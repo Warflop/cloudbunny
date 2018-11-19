@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 from urlparse import urlsplit 
 import censys.certificates
 import ConfigParser
@@ -27,7 +28,7 @@ def censys_search(title):
         if title_result:
             return title_result
     except:
-        print "[-] We got an error here, maybe with your credentials!"
+        print("[-] We got an error here, maybe with your credentials!")
         exit(1)
 
 
@@ -44,5 +45,5 @@ def censys_search_certs(host):
             host_result = set([ search_result['ip'] for search_result in searching ])
             return host_result
     except:
-        print "[-] We got an error here, maybe with your credentials!"
+        print("[-] We got an error here, maybe with your credentials!")
         exit(1)

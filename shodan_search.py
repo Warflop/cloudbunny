@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 from prettytable import PrettyTable
 from shodan import Shodan
 import ConfigParser
@@ -15,7 +16,7 @@ def test_api_shodan(token):
 
 	response = requests.get("https://api.shodan.io/api-info?key={0}".format(token))
 	if response.status_code != 200:
-		print "[-] We got an error with your shodan credentials."
+		print("[-] We got an error with your shodan credentials.")
 		exit(1)		
 
 def shodan_search(word):
@@ -31,7 +32,7 @@ def shodan_search(word):
 
 	except:
 
-		print "[-] We got an error here!"
+		print("[-] We got an error here!")
 		exit(1)
 
 def result_search(list_host):
@@ -47,7 +48,7 @@ def result_search(list_host):
 		
 		except:
 
-			print "[-] We got an error here!"
+			print("[-] We got an error here!")
 			exit(1)			
 
-	print table
+	print(table)

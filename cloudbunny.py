@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 from bs4 import BeautifulSoup
 from urlparse import urlsplit
 from zoomeye_search import *
@@ -17,7 +18,7 @@ def banner():
 
 	color = ['\033[95m' , '\033[96m', '\033[36m' , '\033[94m' , '\033[92m' , '\033[93m' , '\033[91m']
 
-	print choice(color) + ''' 
+	print(choice(color) + ''' 
                _                                  
               (`  ).                   _           
              (     ).              .:(`  )`.       
@@ -52,13 +53,13 @@ def banner():
 CloudBunny - Bypass WAF with Search Engines 
 Author: Eddy Oliveira (@Warflop)
 https://github.com/Warflop \033[0m
-    '''
+    ''')
 
 def banner_footer():
 
 	color = ['\033[95m' , '\033[96m', '\033[36m' , '\033[94m' , '\033[92m' , '\033[93m' , '\033[91m']
 
-	print choice(color) + ''' 
+	print(choice(color) + ''' 
 
   /\\=//\-"""-.        
  / /6 6\ \     \        
@@ -68,7 +69,7 @@ def banner_footer():
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     We may have some false positives :)
 \033[0m
-	'''
+	''')
 
 def search(url):
 
@@ -86,7 +87,7 @@ def search(url):
 		
 	except:
 
-		print "Hey buddy, pass a real address please!"
+		print("Hey buddy, pass a real address please!")
 		exit(1)
 		return
 	
@@ -95,7 +96,7 @@ def search(url):
 		for link in soup.title:
 		    return link
 	else:
-		print "We had a problem with the URL!"
+		print("We had a problem with the URL!")
 		exit(1)
 
 def main():
@@ -114,75 +115,75 @@ def main():
 
 		if args.shodan:
 			banner()
-			print "[+] Looking for target on Shodan..."
+			print("[+] Looking for target on Shodan...")
 			if not shodan_search(title) is None:
 				for shodan_target in shodan_search(title):
 					if not shodan_target in resolver:
 						resolver.append(shodan_target)
 
 		if args.censys:
-			print "[+] Looking for target on Censys..."
+			print("[+] Looking for target on Censys...")
 			if not censys_search(title) is None:
 				for censys_target in censys_search(title):
 					if not censys_target in resolver:
 						resolver.append(censys_target)
 		
-			print "[+] Looking for certificates on Censys..."
+			print("[+] Looking for certificates on Censys...")
 			if not censys_search_certs(host) is None:
 				for censys_target_cert in censys_search_certs(host):
 					if not censys_target_cert in resolver:
 						resolver.append(censys_target_cert)
 
 		if args.zoomeye:
-			print "[+] Looking for target on ZoomEye..."
+			print("[+] Looking for target on ZoomEye...")
 			if not zoomeye_search(title) is None:
 				for zoomeye_target in zoomeye_search(title):
 					if not zoomeye_target in resolver:
 						resolver.append(zoomeye_target)
 
 		if resolver:
-			print "[*] We found some data wait just one more second..."
-			print "\n"
+			print("[*] We found some data wait just one more second...")
+			print("\n")
 			result_search(resolver)
 		else:
-			print "\n"
-			print "[-] Looks like our rabbit has not gotten so deep. :("
+			print("\n")
+			print("[-] Looks like our rabbit has not gotten so deep. :(")
 
 		banner_footer()
 
 	else:
 			banner()
-			print "[+] Looking for target on Shodan..."
+			print("[+] Looking for target on Shodan...")
 			if not shodan_search(title) is None:
 				for shodan_target in shodan_search(title):
 					if not shodan_target in resolver:
 						resolver.append(shodan_target)
 
-			print "[+] Looking for target on Censys..."
+			print("[+] Looking for target on Censys...")
 			if not censys_search(title) is None:
 				for censys_target in censys_search(title):
 					if not censys_target in resolver:
 						resolver.append(censys_target)
 		
-			print "[+] Looking for certificates on Censys..."
+			print("[+] Looking for certificates on Censys...")
 			if not censys_search_certs(host) is None:
 				for censys_target_cert in censys_search_certs(host):
 					if not censys_target_cert in resolver:
 						resolver.append(censys_target_cert)
 
-			print "[+] Looking for target on ZoomEye..."
+			print("[+] Looking for target on ZoomEye...")
 			if not zoomeye_search(title) is None:
 				for zoomeye_target in zoomeye_search(title):
 					if not zoomeye_target in resolver:
 						resolver.append(zoomeye_target)
 
 			if resolver:
-				print "[-] Just more some seconds..."
-				print "\n"
+				print("[-] Just more some seconds...")
+				print("\n")
 				result_search(resolver)
 			else:
-				print "\n"
-				print "[-] Looks like our rabbit has not gotten so deep. :("
+				print("\n")
+				print("[-] Looks like our rabbit has not gotten so deep. :(")
 
 			banner_footer()
 
