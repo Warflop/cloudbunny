@@ -4,5 +4,5 @@ PrettyTable
 cfscrape
 argparse
 requests
-censys
+censys==0.0.8
 shodan
