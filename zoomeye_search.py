@@ -3,9 +3,9 @@
 
 from __future__ import print_function
 import requests
-import ConfigParser
+import configparser
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.read("api.conf")
 username = config.get('zoomeye', 'username')
 password = config.get('zoomeye', 'password')

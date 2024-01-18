@@ -25,7 +25,7 @@ After that you need to put the credentials in the <b>api.conf</b> file.
 Install the requirements:
 
 <pre>
-$ sudo pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 </pre>
 
 # Usage
@@ -33,13 +33,13 @@ $ sudo pip install -r requirements.txt
 By default the tool searches on all search engines (you can set this up by arguments), but you need to put the credentials as stated above. After you have loaded the credentials and installed the requirements, execute:
 
 <pre>
-$ python cloudbunny.py -u securityattack.com.br
+$ python3 cloudbunny.py -u securityattack.com.br
 </pre>
 
 Check our help area:
 
 <pre>
-$ python cloudbunny.py -h
+$ python3 cloudbunny.py -h
 </pre>
 
 Change <b>securityattack.com.br</b> for the domain of your choice.
@@ -48,7 +48,7 @@ Change <b>securityattack.com.br</b> for the domain of your choice.
 
 <pre>
 
-$ python cloudbunny.py -u site_example.com.br
+$ python3 cloudbunny.py -u site_example.com.br
 
 	            /|      __  
 	           / |   ,-~ /  

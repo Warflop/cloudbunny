@@ -1,18 +1,15 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
 from bs4 import BeautifulSoup
-from urlparse import urlsplit
 from zoomeye_search import *
 from shodan_search import *
 from censys_search import *
 from random import choice
-import requests, cfscrape
+import cfscrape
 import argparse
 import re
-
-# “Never underestimate the determination of a kid who is time-rich and cash-poor.”
 
 def banner():
 
@@ -89,12 +86,11 @@ def search(url):
 
 		print("Hey buddy, pass a real address please!")
 		exit(1)
-		return
 	
 	if data.status_code == 200:
 		soup = BeautifulSoup(data.text,'html.parser')
 		for link in soup.title:
-		    return link
+			return link
 	else:
 		print("We had a problem with the URL!")
 		exit(1)

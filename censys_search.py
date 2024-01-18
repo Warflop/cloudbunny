@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
-from urlparse import urlsplit 
+from urllib.parse import urlsplit 
 import censys.certificates
-import ConfigParser
+import configparser
 import censys.ipv4
 import re
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.read("api.conf")
 TOKEN = config.get('censys', 'token')
 UID = config.get('censys', 'uid')
