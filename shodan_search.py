@@ -1,13 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
 from prettytable import PrettyTable
 from shodan import Shodan
-import ConfigParser
+import configparser
 import requests
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.read("api.conf")
 token = config.get('shodan', 'token')
 api = Shodan(token)
@@ -40,14 +40,10 @@ def result_search(list_host):
 	table = PrettyTable(['IP Address','ISP','Ports','Last Update'])
 
 	for check in list_host:
-
-	 	try:
-	
+		try:
 			host_result = api.host(check)
 			table.add_row([host_result['ip_str'], host_result['isp'], host_result['ports'], host_result['last_update']])
-		
 		except:
-
 			print("[-] We got an error here!")
 			exit(1)			
 
