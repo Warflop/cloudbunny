@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 from __future__ import print_function
 from bs4 import BeautifulSoup
 from zoomeye_search import *
