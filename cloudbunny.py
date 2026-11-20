@@ -17,7 +17,7 @@ def banner():
 
 	color = ['\033[95m' , '\033[96m', '\033[36m' , '\033[94m' , '\033[92m' , '\033[93m' , '\033[91m']
 
-	print(choice(color) + ''' 
+	print(choice(color) + r'''
                _                                  
               (`  ).                   _           
              (     ).              .:(`  )`.       
@@ -53,14 +53,14 @@ CloudBunny 2.0 - Bypass WAF with Search Engines
 V2 Author: Brian Wimpsett (@bwimpsett)
 Author: Eddy Oliveira (@Warflop)
 https://github.com/bwimpsett
-https://github.com/Warflop \033[0m
-    ''')
+https://github.com/Warflop
+    ''' + '\033[0m')
 
 def banner_footer():
 
 	color = ['\033[95m' , '\033[96m', '\033[36m' , '\033[94m' , '\033[92m' , '\033[93m' , '\033[91m']
 
-	print(choice(color) + ''' 
+	print(choice(color) + r'''
 
   /\\=//\-"""-.        
  / /6 6\ \     \        
@@ -69,8 +69,7 @@ def banner_footer():
     "" ""  """       
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     We may have some false positives :)
-\033[0m
-	''')
+	''' + '\033[0m')
 
 def search(url):
 

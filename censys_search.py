@@ -3,7 +3,7 @@
 
 from __future__ import print_function
 from urllib.parse import urlsplit
-from censys.search import CensysCertificates
+from censys.search import CensysCerts
 from censys.search import CensysHosts
 import configparser
 import re
@@ -45,12 +45,22 @@ def censys_search(title):
     It seems anything over 10 will cause it to time out.  Even 10 is slow to go through.'''
 def censys_search_certs(host, pg, mr):
     try:
-        certificates = CensysCertificates(api_id = UID, api_secret = TOKEN)
-        if mr == 0:
-            cert_query = certificates.search(f"parsed.names: {host} AND tags.raw: trusted AND NOT parsed.names: cloudflaressl.com")    
-        else:
-            cert_query = certificates.search(f"parsed.names: {host} AND tags.raw: trusted AND NOT parsed.names: cloudflaressl.com", page = pg, max_records = mr)       
-        results = set([cert['parsed.fingerprint_sha256'] for cert in cert_query])
+        certificates = CensysCerts(api_id = UID, api_secret = TOKEN)
+        query = f"parsed.names: {host} AND tags.raw: trusted AND NOT parsed.names: cloudflaressl.com"
+        pages = -1 if mr == 0 else pg - 1 + math.ceil(mr / 50)
+        cert_query = certificates.search(query, per_page = 50, pages = pages)
+
+        cert_results = []
+        for page_number, page in enumerate(cert_query, start = 1):
+            if page_number < pg:
+                continue
+            cert_results.extend(page)
+            if mr > 0 and len(cert_results) >= mr:
+                break
+
+        if mr > 0:
+            cert_results = cert_results[:mr]
+        results = set([cert['parsed.fingerprint_sha256'] for cert in cert_results])
         rc = len(results)
         if rc > 0:
             result_list = [result for result in results]

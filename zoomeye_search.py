@@ -23,7 +23,7 @@ def zoomeye_search(word):
 			response = requests.post('https://api.zoomeye.org/user/login', data = data)
 			token = response.json()['access_token']
 	except:
-		print("[-] We got an error with your zoomeye credentials. (Check if zoomeye is down ¯\_(ツ)_/¯)")
+		print("[-] We got an error with your zoomeye credentials. (Check if zoomeye is down ¯\\_(ツ)_/¯)")
 		return
 
 	try:
