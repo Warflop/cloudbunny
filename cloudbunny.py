@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from __future__ import print_function
 from bs4 import BeautifulSoup
 from zoomeye_search import *
@@ -10,8 +7,6 @@ from random import choice
 import cfscrape
 import argparse
 import re
-
-# “Never underestimate the determination of a kid who is time-rich and cash-poor.”
 
 def banner():
 
